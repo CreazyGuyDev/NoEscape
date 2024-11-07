@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NoEscape:jar">
+    <output-path>$USER_HOME$/minecraft/servers/paper/1.21/plugins</output-path>
+    <root id="archive" name="NoEscape.jar">
+      <element id="module-output" name="NoEscape" />
+    </root>
+  </artifact>
+</component>
