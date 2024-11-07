@@ -1,12 +1,15 @@
 package pl.creazy.noescape.combat;
 
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.PotionMeta;
 import org.jetbrains.annotations.NotNull;
 import pl.creazy.creazylib.data.persistence.config.Config;
 import pl.creazy.creazylib.manager.constraints.Manager;
 import pl.creazy.creazylib.part.constraints.Injected;
 import pl.creazy.creazylib.part.constraints.OnDisable;
 import pl.creazy.creazylib.part.constraints.OnEnable;
+import pl.creazy.creazylib.util.mc.Mc;
 import pl.creazy.noescape.NoEscape;
 
 import java.util.HashMap;
@@ -79,5 +82,26 @@ class CombatManager {
 
   void resetCombatTime(@NotNull Player player) {
     resetCombatTime(player.getUniqueId());
+  }
+
+  @SuppressWarnings("UnstableApiUsage")
+  boolean shouldResetCombatTimeOnProjectileHit(@NotNull Projectile projectile) {
+    if (projectile instanceof ThrownPotion) {
+      return config.getResetOnPotion();
+    } else if (projectile instanceof WindCharge) {
+      return config.getResetOnWindCharge();
+    } else if (projectile instanceof Egg) {
+      return config.getResetOnEgg();
+    } else if (projectile instanceof Snowball) {
+      return config.getResetOnSnowball();
+    } else if (projectile instanceof Arrow || projectile instanceof SpectralArrow) {
+      return config.getResetOnArrow();
+    } else if (projectile instanceof EnderPearl) {
+      return config.getResetOnEnderPearl();
+    } else if (projectile instanceof FishHook) {
+      return config.getResetOnFishingRod();
+    } else {
+      return true;
+    }
   }
 }
