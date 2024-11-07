@@ -10,6 +10,18 @@ class CombatConfig {
   @ConfigVar("combat-time")
   private Integer combatTime = 600;
 
+  @ConfigVar("boss-bar")
+  private Boolean bossBar = true;
+
+  @ConfigVar("boss-bar-color")
+  private String bossBarColor = "YELLOW";
+
+  @ConfigVar("boss-bar-style")
+  private String bossBarStyle = "SOLID";
+
+  @ConfigVar("action-bar")
+  private Boolean actionBar = false;
+
   @ConfigVar("reset.snowball")
   private Boolean resetOnSnowball = true;
 
